@@ -111,6 +111,41 @@ export type Database = {
           },
         ]
       }
+      nudges: {
+        Row: {
+          created_at: string
+          family_id: string
+          from_user_id: string
+          id: string
+          task_id: string
+          to_name: string
+        }
+        Insert: {
+          created_at?: string
+          family_id: string
+          from_user_id: string
+          id?: string
+          task_id: string
+          to_name: string
+        }
+        Update: {
+          created_at?: string
+          family_id?: string
+          from_user_id?: string
+          id?: string
+          task_id?: string
+          to_name?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "nudges_task_id_fkey"
+            columns: ["task_id"]
+            isOneToOne: false
+            referencedRelation: "tasks"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       tasks: {
         Row: {
           assigned_to: string
@@ -119,6 +154,7 @@ export type Database = {
           due_date: string | null
           family_id: string
           id: string
+          recurrence: string
           title: string
           updated_at: string
           user_id: string
@@ -130,6 +166,7 @@ export type Database = {
           due_date?: string | null
           family_id: string
           id?: string
+          recurrence?: string
           title: string
           updated_at?: string
           user_id: string
@@ -141,6 +178,7 @@ export type Database = {
           due_date?: string | null
           family_id?: string
           id?: string
+          recurrence?: string
           title?: string
           updated_at?: string
           user_id?: string
