@@ -105,3 +105,14 @@
     letter-spacing: -0.015em;
   }
 }
+
+@keyframes wiggle {
+  0%, 96%, 100% { transform: translateX(0); }
+  97% { transform: translateX(-1.5px); }
+  98% { transform: translateX(1.5px); }
+  99% { transform: translateX(-1px); }
+}
+
+.animate-wiggle {
+  animation: wiggle 4s ease-in-out infinite;
+}
